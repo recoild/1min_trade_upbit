@@ -1,0 +1,21 @@
+{
+  "name": "upbit-websocket-relay",
+  "version": "1.0.0",
+  "description": "Upbit WebSocket Relay Server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": ["upbit", "websocket", "relay"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "node-fetch": "^2.6.7", 
+    "ws": "^8.0.0" 
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.0" 
+  }
+}

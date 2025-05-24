@@ -1,0 +1,10 @@
+# .dockerignore
+node_modules
+.next
+.git
+.gitignore
+docker-compose.yml
+docker-compose.*
+README.md
+nohup.out
+*.log
