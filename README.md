@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# 🚀 1min_trade_upbit
 
-First, run the development server:
+업비트 거래소의 **실시간 1분 거래량**을 시각화하는 Next.js 대시보드와, 업비트 WebSocket 데이터를 중계하는 Node.js 릴레이 서버 프로젝트입니다.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## ✨ 주요 기능
+
+🔹 **업비트 KRW 마켓 전체**의 실시간 1분 거래량 집계 및 테이블 표시
+🔹 업비트 공식 REST API로 마켓 정보(한글명 등) 자동 로드
+🔹 WebSocket 릴레이 서버를 통한 실시간 데이터 수신 (직접 Upbit에 연결하지 않고 중계)
+🔹 Docker로 프론트엔드/릴레이 서버 모두 손쉽게 배포 가능
+
+---
+
+## 📁 폴더 구조
+
+```
+├─ app/                   # Next.js 프론트엔드 (대시보드)
+├─ upbit-websocket-relay/ # 업비트 WebSocket 릴레이 서버 (Node.js)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ⚡️ 설치 및 실행
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1️⃣ 릴레이 서버 실행
 
-## Learn More
+```bash
+cd upbit-websocket-relay
+npm install
+npm start
+```
+👉 기본 포트: `8080` (`WEBSOCKET_RELAY_PORT` 환경 변수로 변경 가능)
 
-To learn more about Next.js, take a look at the following resources:
+### 2️⃣ 프론트엔드 실행
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm install
+npm run dev
+```
+👉 기본 포트: `3000`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 3️⃣ 환경 변수
 
-## Deploy on Vercel
+프론트엔드 루트에 `.env.local` 파일 생성:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```env
+NEXT_PUBLIC_WEBSOCKET_RELAY_URL=ws://localhost:8080
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+릴레이 서버는 `.env` 파일에서 포트 지정 가능:
+
+```env
+WEBSOCKET_RELAY_PORT=8080
+```
+
+---
+
+## 🐳 Docker로 실행
+
+```bash
+# 프론트엔드
+docker build -t upbit-frontend .
+docker run -p 3000:3000 --env-file .env.local upbit-frontend
+
+# 릴레이 서버
+cd upbit-websocket-relay
+docker build -t upbit-relay .
+docker run -p 8080:8080 --env-file .env upbit-relay
+```
+
+---
+
+## 🛠️ 사용 기술
+
+- ⚡ Next.js 14 (App Router)
+- ⚛️ React 18
+- 🟦 TypeScript
+- 🖥️ shadcn/ui (테이블 등 UI 컴포넌트)
+- 🟩 Node.js (릴레이 서버)
+- 🔌 WebSocket, REST API
+- 🐳 Docker
+
+---
+
+## 📚 참고
+
+- [업비트 공식 API](https://docs.upbit.com/)
+- 실시간 데이터는 **릴레이 서버**를 통해서만 수신합니다.
