@@ -37,7 +37,7 @@ npm start
 ### 2️⃣ 프론트엔드 실행
 
 ```bash
-npm install
+npm install --force
 npm run dev
 ```
 👉 기본 포트: `3000`
