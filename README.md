@@ -61,14 +61,7 @@ WEBSOCKET_RELAY_PORT=8080
 ## 🐳 Docker로 실행
 
 ```bash
-# 프론트엔드
-docker build -t upbit-frontend .
-docker run -p 3000:3000 --env-file .env.local upbit-frontend
-
-# 릴레이 서버
-cd upbit-websocket-relay
-docker build -t upbit-relay .
-docker run -p 8080:8080 --env-file .env upbit-relay
+docker compose up -d --build
 ```
 
 ---
