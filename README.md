@@ -75,8 +75,8 @@ docker run -p 8080:8080 --env-file .env upbit-relay
 
 ## 🛠️ 사용 기술
 
-- ⚡ Next.js 14 (App Router)
-- ⚛️ React 18
+- ⚡ Next.js 15 (App Router)
+- ⚛️ React 9
 - 🟦 TypeScript
 - 🖥️ shadcn/ui (테이블 등 UI 컴포넌트)
 - 🟩 Node.js (릴레이 서버)
