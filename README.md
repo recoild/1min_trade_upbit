@@ -99,3 +99,4 @@ docker compose up -d --build
 릴레이 서버는 별도의 레포지토리에서 관리됩니다. 아래 링크를 참고하세요:
 
 🔗 [1min_trade_upbit_relay_socket](https://github.com/recoild/1min_trade_upbit_relay_socket)
+\nFor a sample pull request demonstration, see [docs/sample_pr.md](docs/sample_pr.md).
