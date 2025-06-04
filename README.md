@@ -13,15 +13,6 @@
 
 ---
 
-## 📁 폴더 구조
-
-```
-├─ app/                   # Next.js 프론트엔드 (대시보드)
-├─ upbit-websocket-relay/ # 업비트 WebSocket 릴레이 서버 (Node.js)
-```
-
----
-
 ## ⚡️ 설치 및 실행
 
 ### 1️⃣ 릴레이 서버 실행
